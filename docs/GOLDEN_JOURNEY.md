@@ -10,4 +10,6 @@
 8. Confirm the operational panel shows checks, sources, changes and reviews required.
 9. Confirm the final state is **Review required**; no autonomous approval is offered.
 
+On callback, the SPA consumes `id_token` from the URL fragment once, removes the fragment from browser history, and uses the stored session on reload. It does not render a Passport for a missing, rejected or errored session; those states are explicit to the user.
+
 Product events persisted by the API include `CHECK_REQUESTED` and support `HUMAN_REVIEW_RECORDED`. `GUARANTEE_CREATED`, `SOURCE_ASSOCIATED`, `CHANGE_OBSERVED` and `REVIEW_REQUIRED` are part of the product event vocabulary and may be added by the next product workflow extension.

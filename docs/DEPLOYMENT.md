@@ -14,3 +14,5 @@ pnpm.cmd run deploy
 After deployment, the stack outputs `WebUrl`, `ApiUrl`, `UserPoolId`, `UserPoolClientId` and `HostedUiUrl`. The Cognito client callback URL must be updated to the returned CloudFront `WebUrl` before hosted-UI login. Keep proof-user credentials outside the repository.
 
 The stack is isolated and has no imports or exports that bind it to existing KOS stacks.
+
+Physical acceptance must verify both the canonical CloudFront URL and the protected API through the same browser session. Record safe metadata only: HTTP status, authenticated/rejected state, Passport status and event count. Never record token values.

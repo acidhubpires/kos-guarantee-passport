@@ -1,0 +1,1 @@
+{"name":"@guarantee-passport/infra","private":true,"type":"module","scripts":{"build":"tsc -p tsconfig.json","typecheck":"tsc -p tsconfig.json --noEmit","synth":"cdk synth","deploy":"cdk deploy --require-approval never"},"dependencies":{"aws-cdk-lib":"^2.243.0","constructs":"^10.4.2"},"devDependencies":{"@types/node":"^22.10.0","typescript":"^5.7.2","aws-cdk":"^2.1029.2"}}

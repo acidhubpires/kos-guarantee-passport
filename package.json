@@ -1,0 +1,20 @@
+{
+  "name": "kos-guarantee-passport",
+  "private": true,
+  "version": "0.1.0",
+  "packageManager": "pnpm@10.33.2",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "build": "pnpm --filter @guarantee-passport/web build && pnpm --filter @guarantee-passport/api build && pnpm --filter @guarantee-passport/infra build",
+    "typecheck": "pnpm -r typecheck",
+    "test": "pnpm -r test",
+    "synth": "pnpm --filter @guarantee-passport/infra synth",
+    "deploy": "pnpm --filter @guarantee-passport/infra deploy"
+  },
+  "devDependencies": {
+    "aws-cdk-lib": "^2.243.0",
+    "constructs": "^10.4.2",
+    "typescript": "^5.7.2",
+    "vitest": "^2.1.8"
+  }
+}

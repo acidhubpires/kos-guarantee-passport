@@ -1,0 +1,1 @@
+{"name":"@guarantee-passport/api","private":true,"type":"module","scripts":{"build":"tsc -p tsconfig.json","typecheck":"tsc -p tsconfig.json --noEmit","test":"vitest run"},"dependencies":{"@aws-sdk/client-dynamodb":"^3.873.0","@aws-sdk/lib-dynamodb":"^3.873.0"},"devDependencies":{"@types/aws-lambda":"^8.10.145","@types/node":"^22.10.0","typescript":"^5.7.2","vitest":"^2.1.8"}}

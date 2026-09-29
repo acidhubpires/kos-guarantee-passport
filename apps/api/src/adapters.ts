@@ -1,0 +1,4 @@
+export type IntegrationResult<T>={status:'live'|'unavailable';data?:T;reason?:string};
+async function readOnly<T>(base:string|undefined,path:string,token:string|undefined):Promise<IntegrationResult<T>>{if(!base)return {status:'unavailable',reason:'No documented endpoint configured'}; try{const r=await fetch(`${base}${path}`,{headers:token?{authorization:token}:undefined}); if(!r.ok)return {status:'unavailable',reason:`External API returned ${r.status}`}; return {status:'live',data:await r.json() as T};}catch(e){return {status:'unavailable',reason:e instanceof Error?e.message:'External API unavailable'};}}
+export const evidenceRead=(projectId:string,token?:string)=>readOnly(process.env.EVIDENCE_API_URL,`/projects/${encodeURIComponent(projectId)}`,token);
+export const foundryRead=(projectId:string,token?:string)=>readOnly(process.env.FOUNDRY_API_URL,`/projects/${encodeURIComponent(projectId)}`,token);

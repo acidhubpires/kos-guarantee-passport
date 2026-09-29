@@ -16,6 +16,10 @@ The product remains on Cognito implicit flow for this sprint because the deploye
 
 Physical deployment diagnosis also found a CloudFront boundary defect: the `/api/*` behavior forwarded the viewer `Host` header to API Gateway, and the distribution's global error response converted the resulting origin error into SPA HTML. The behavior now uses the managed `AllViewerExceptHostHeader` origin request policy and leaves API errors as API responses.
 
+Chat is a bounded deterministic capability router over the Passport contract. It classifies natural-language Portuguese and English requests into status, context, decision context, recent change, materiality, sources, freshness, review, timeline, missing knowledge, checks, conversation context, or safe out-of-scope refusal. It does not call an LLM or make an approval, rejection, legal-validity, or materiality decision.
+
+Sign out removes the product browser token before redirecting through the product Cognito hosted-UI logout endpoint. Cognito returns to the product root, which then presents `AUTH_REQUIRED` because no product session remains.
+
 ## Status projection
 
 `STABLE` means no material change observed in the product record. `ATTENTION_REQUIRED` means a change needs attention but human review is not yet required. `REVIEW_REQUIRED` means a materiality decision remains open. The fixture is intentionally `REVIEW_REQUIRED` after the new observation.
